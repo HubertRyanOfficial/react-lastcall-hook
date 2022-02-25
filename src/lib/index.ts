@@ -14,8 +14,10 @@ function useLastCall(
   const msToSeconds = ms * 1000;
 
   if (getSecondsDifference >= msToSeconds) {
-    return functionToCall();
+    return functionToCall;
   }
+
+  return () => null;
 }
 
 export { useLastCall };
