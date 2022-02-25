@@ -2,7 +2,7 @@
   "name": "react-lastcall-hook",
   "version": "1.0.0",
   "description": "A react or react native library to call functions comparing the last time that it was called",
-  "main": "dist/index.ts",
+  "main": "dist/index.js",
   "types": "dist/index.d.ts",
   "scripts": {
     "build": "npx tsc --build",
