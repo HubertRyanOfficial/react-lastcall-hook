@@ -2,13 +2,13 @@
   "name": "react-lastcall-hook",
   "version": "1.0.0",
   "description": "A react or react native library to call functions comparing the last time that it was called",
-  "main": "src/index.js",
+  "main": "dist/index.ts",
   "types": "dist/index.d.ts",
   "scripts": {
     "build": "npx tsc --build",
     "clean": "npx tsc --build --clean",
     "tsc": "tsc -p tsconfig.json",
-    "test": "npx jest"
+    "dev": "yarn build && node -e require('./src/test.js')"
   },
   "repository": "https://github.com/HubertRyanOfficial/react-lastcall-hook.git",
   "author": "Hubert Ryan",
