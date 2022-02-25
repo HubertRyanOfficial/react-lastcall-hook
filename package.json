@@ -11,7 +11,7 @@
     "dev": "yarn build && node -e require('./src/test.js')"
   },
   "repository": "https://github.com/HubertRyanOfficial/react-lastcall-hook.git",
-  "author": "Hubert Ryan",
+  "author": "Hubert Ryan (hubertryanofficial@gmail.com)",
   "license": "MIT",
   "private": false,
   "devDependencies": {
