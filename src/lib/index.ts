@@ -11,7 +11,7 @@ function useLastCall(
 
   const getSecondsDifference =
     (LAST_TIME_DATE.getTime() - NOW_DATE.getTime()) / 1000;
-  const msToSeconds = ms * 1000;
+  const msToSeconds = ms / 1000;
 
   if (getSecondsDifference >= msToSeconds) {
     return functionToCall;
