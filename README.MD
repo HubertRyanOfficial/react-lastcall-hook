@@ -26,7 +26,7 @@ $ npm install react-lastcall-hook --save
 
 As we use react's own hooks, we recommend using the react version from **16.8** onwards, thus making it possible to use the useEffect and useState hooks.
 
-## Quick Start
+## How to apply
 
 One of the examples is to make the time difference determined between the last call already passed by more than 1 minute. So checking if it's been 1 minute from the moment of execution or the call to the databases. So let's see how it would look!
 
