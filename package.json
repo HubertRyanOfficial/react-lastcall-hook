@@ -1,6 +1,6 @@
 {
   "name": "react-lastcall-hook",
-  "version": "1.0.10",
+  "version": "1.0.11",
   "description": "A react or react native library to call functions comparing the last time that it was called",
   "main": "dist/index.js",
   "types": "dist/index.d.ts",
