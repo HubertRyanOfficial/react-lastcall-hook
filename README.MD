@@ -51,7 +51,3 @@ function ExampleComponent() {
 }
 
 ```
-
-| Parameters | Type     |
-| :--------- | :------- | :-------------------------------------------------------------------- |
-| **`ms`**   | `Number` | `The time it must be called again after being called the first time.` |
