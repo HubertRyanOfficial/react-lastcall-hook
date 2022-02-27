@@ -1,23 +1,32 @@
-function useLastCall(
-  ms: number,
-  lastCallTime: number,
-  functionToCall: () => void
-): any {
-  if (!ms || !lastCallTime || !functionToCall)
-    throw "All proprety are required to useLastCall hook work";
+import { useState, useEffect } from "react";
 
-  const NOW_DATE = new Date();
-  const LAST_TIME_DATE = new Date(lastCallTime);
+function useLastCall(ms: number, lastCallTime: number, functionToCall: any) {
+  const [value, setValue] = useState(null);
+  function verifyLastCall() {
+    if (!ms || !lastCallTime || !functionToCall)
+      throw "All proprety are required to useLastCall hook work";
 
-  const getSecondsDifference =
-    (LAST_TIME_DATE.getTime() - NOW_DATE.getTime()) / 1000;
-  const msToSeconds = ms / 1000;
+    const NOW_DATE = new Date();
+    const LAST_TIME_DATE = new Date(lastCallTime);
 
-  if (getSecondsDifference >= msToSeconds) {
-    return functionToCall;
+    const getSecondsDifference =
+      (NOW_DATE.getTime() - LAST_TIME_DATE.getTime()) / 1000;
+    const msToSeconds = ms / 1000;
+
+    if (
+      getSecondsDifference >= msToSeconds ||
+      NOW_DATE.getTime() == LAST_TIME_DATE.getTime() ||
+      getSecondsDifference < 1
+    ) {
+      setValue(functionToCall);
+    }
   }
 
-  return () => null;
+  useEffect(() => {
+    verifyLastCall();
+  }, []);
+
+  return value;
 }
 
 export { useLastCall };
