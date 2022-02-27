@@ -52,11 +52,11 @@ function ExampleComponent() {
 
 ```
 
-| Parameters     | Type      | Description                                                                                                                 |
-| -------------- | --------- | --------------------------------------------------------------------------------------------------------------------------- |
-| ms             | Number    | The time the function must be called after being called for the first time would differ in total milliseconds.              |
-| lastCallTime   | timestamp | The value in sequential number or the timestamp of the last time the requested function was called to check the value in ms |
-| functionToCall | function  | The function itself that should be called in these traversals.                                                              |
+| Parameters     | Type      | Description                                                                                                                     |
+| -------------- | --------- | ------------------------------------------------------------------------------------------------------------------------------- |
+| ms             | Number    | The time the function must be called after being called for the first time would differ in **total milliseconds**.              |
+| lastCallTime   | timestamp | The value in sequential number or the **timestamp of the last time** the requested function was called to check the value in ms |
+| functionToCall | function  | The **function** itself that should be called in these traversals.                                                              |
 
 ## Examples
 
