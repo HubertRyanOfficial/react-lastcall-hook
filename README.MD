@@ -14,16 +14,44 @@ A react or react native library to call functions comparing the last time that i
 
 ```sh
 $ yarn add react-lastcall-hook
-```
 
 or
 
-```sh
 $ npm install react-lastcall-hook --save
 ```
 
 ## Quick Start
 
-**useLastCall** library was created to avoid calls to the database without needing a cache itself, determining how often it should be called again by comparing the time difference between the last call in which the call was made in the database and the time that is performing the same function.
+**useLastCall** library was created to avoid calls to the database without needing a cache itself, determining how often it should be called again by comparing the time difference between the last call in which the call was made in the database and the time that is performing the same function. Of course, for your reactjs and react native project.
 
 As we use react's own hooks, we recommend using the react version from **16.8** onwards, thus making it possible to use the useEffect and useState hooks.
+
+## Start of an example
+
+One of the examples is to make the time difference determined between the last call already passed by more than 1 minute. So checking if it's been 1 minute from the moment of execution or the call to the databases. So let's see how it would look!
+
+Let's simulate that we are going to make a first-class api call to fetch our posts, see how simple. 😍😊
+
+```js
+...
+
+import useLastCall from "react-lastcall-hook";
+
+function ExampleComponent() {
+
+  const callPosts = useLastCall(ms,timestampOfLastCall, functionToCall);
+
+  useEffect(() => {
+    if(callPosts) {
+      callPosts()
+    }
+  }, [callPosts])
+
+  return (...)
+}
+
+```
+
+| Parameters | Type     |
+| :--------- | :------- | :-------------------------------------------------------------------- |
+| **`ms`**   | `Number` | `The time it must be called again after being called the first time.` |
