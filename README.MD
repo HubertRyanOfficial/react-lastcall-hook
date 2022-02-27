@@ -11,3 +11,15 @@
 # useLastCall (react-hook)
 
 A react or react native library to call functions comparing the last time that it was called and running it when it's really needed. Avoiding unnecessary database calls or data loads that are updated at a certain time.
+
+```sh
+$ yarn add react-lastcall-hook
+```
+
+or
+
+```sh
+$ npm install react-lastcall-hook --save
+```
+
+## Getting Started
