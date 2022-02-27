@@ -87,4 +87,6 @@ function ExampleComponent() {
 
 ```
 
-Now, the function to get the post will only be called when the time from the last call to the new one is more than 1 minute. Which in this case I put in ms to facilitate our customization. We see that the time of the last call is called our Date, that means that the function will be called as any useEffect, that's why there is no difference between this time that was added as the time of the last call to the current one
+#### Yump, yeah!!!
+
+Now, the function to get the post will only be called when the time from the last call to the new one is more than 1 minute. Which in this case I put in ms to facilitate our customization. We see that the time of the last call is our Date, that means that the function will be called as any useEffect, that's why there is no difference between this time that was added for hour current one.
