@@ -22,4 +22,8 @@ or
 $ npm install react-lastcall-hook --save
 ```
 
-## Getting Started
+## Quick Start
+
+**useLastCall** library was created to avoid calls to the database without needing a cache itself, determining how often it should be called again by comparing the time difference between the last call in which the call was made in the database and the time that is performing the same function.
+
+As we use react's own hooks, we recommend using the react version from **16.8** onwards, thus making it possible to use the useEffect and useState hooks.
