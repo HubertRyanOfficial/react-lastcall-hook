@@ -26,7 +26,7 @@ $ npm install react-lastcall-hook --save
 
 As we use react's own hooks, we recommend using the react version from **16.8** onwards, thus making it possible to use the useEffect and useState hooks.
 
-## Start of an example
+## Quick Start
 
 One of the examples is to make the time difference determined between the last call already passed by more than 1 minute. So checking if it's been 1 minute from the moment of execution or the call to the databases. So let's see how it would look!
 
@@ -39,7 +39,7 @@ import useLastCall from "react-lastcall-hook";
 
 function ExampleComponent() {
 
-  const callPosts = useLastCall(ms,timestampOfLastCall, functionToCall);
+  const callPosts = useLastCall(ms,lastCallTime, functionToCall);
 
   useEffect(() => {
     if(callPosts) {
@@ -51,3 +51,40 @@ function ExampleComponent() {
 }
 
 ```
+
+| Parameters     | Type      | Description                                                                                                                 |
+| -------------- | --------- | --------------------------------------------------------------------------------------------------------------------------- |
+| ms             | Number    | The time the function must be called after being called for the first time would differ in total milliseconds.              |
+| lastCallTime   | timestamp | The value in sequential number or the timestamp of the last time the requested function was called to check the value in ms |
+| functionToCall | function  | The function itself that should be called in these traversals.                                                              |
+
+## Examples
+
+Now let's see a more real example.
+
+```js
+...
+
+import useLastCall from "react-lastcall-hook";
+
+function ExampleComponent() {
+
+  const callPosts = useLastCall(1000 * 64, new Date().valueOf, getPosts);
+
+  useEffect(() => {
+    if(callPosts) {
+      callPosts()
+    }
+  }, [callPosts]);
+
+
+  async function getPosts() {
+    await fetch(...)
+  }
+
+  return (...)
+}
+
+```
+
+Now, the function to get the post will only be called when the time from the last call to the new one is more than 1 minute. Which in this case I put in ms to facilitate our customization. We see that the time of the last call is called our Date, that means that the function will be called as any useEffect, that's why there is no difference between this time that was added as the time of the last call to the current one
