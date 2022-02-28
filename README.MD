@@ -90,3 +90,43 @@ function ExampleComponent() {
 #### Yump, yeah!!!
 
 Now, the function to get the post will only be called when the time from the last call to the new one is more than 1 minute. Which in this case I put in ms to facilitate our customization. We see that the time of the last call is our Date, that means that the function will be called as any useEffect, that's why there is no difference between this time that was added for hour current one.
+
+A very good way to store the value of the last time this function was called is to use Context or redux. I will show an example with redux always updating a reducer with this value of the last call in timestamp. Now getting and always saving to a property inside a **reducer or context called callPostsLastTime**. If you have another way to improve, share it with us.
+
+```js
+...
+
+import {useDisptach} from "react-redux";
+
+import useLastCall from "react-lastcall-hook";
+
+function ExampleComponent({callPostLastTime = new Date().valueOf}) {
+  const disptach = useDisptach();
+
+  const callPosts = useLastCall(1000 * 64, callPostLastTime, updateCallPostLastTime);
+
+  useEffect(() => {
+    if(callPosts) {
+      callPosts()
+    }
+  }, [callPosts]);
+
+  function updateCallPostLastTime() {
+
+    disptach({
+      type: "UPDATE_CALLPOSTS_LASTTIME",
+      payload: new Date().valueOf();
+    })
+    getPosts()
+  }
+
+  async function getPosts() {
+    await fetch(...)
+  }
+
+  return (...)
+}
+
+```
+
+Yes, now using the **useDisptach** hook from **react-redux** so we can update the value in our reducer within redux. In case you don't understand much about **Redux** architecture, here's a link to see more about it: https://redux.js.org/introduction/getting-started
