@@ -127,6 +127,24 @@ function ExampleComponent({callPostLastTime = new Date().valueOf}) {
   return (...)
 }
 
+const mapStateToProps = store => {
+  return ({
+    callPostLastTime: store.postsReducer.lastTime
+  })
+}
+
+export default (mapStateToProps, null)(ExampleComponent);
+
 ```
 
 Yes, now using the **useDisptach** hook from **react-redux** so we can update the value in our reducer within redux. In case you don't understand much about **Redux** architecture, here's a link to see more about it: https://redux.js.org/introduction/getting-started
+
+## You got it! 👍😁
+
+If you want to use it with architectures using **Contexts**, it's very useful too. Remembering that this is so we can store the last time the function was called and so we can see the time difference for the execution to go live.
+
+Thank you very much, I hope I have helped the great React community. ❤🙌
+
+<p align="center">
+  <img src="https://imgur.com/nIAoYGc.png" width="300" title="Whatsapp">
+</p>
