@@ -96,7 +96,7 @@ A very good way to store the value of the last time this function was called is 
 ```js
 ...
 
-import {useDisptach} from "react-redux";
+import {useDisptach, connect} from "react-redux";
 
 import useLastCall from "react-lastcall-hook";
 
@@ -127,13 +127,11 @@ function ExampleComponent({callPostLastTime = new Date().valueOf}) {
   return (...)
 }
 
-const mapStateToProps = store => {
-  return ({
-    callPostLastTime: store.postsReducer.lastTime
-  })
-}
+const mapStateToProps = store => ({
+  callPostLastTime: store.postsReducer.lastTime
+});
 
-export default (mapStateToProps, null)(ExampleComponent);
+export default connect(mapStateToProps, null)(ExampleComponent);
 
 ```
 
