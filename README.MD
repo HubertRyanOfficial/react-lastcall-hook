@@ -12,6 +12,8 @@
 
 A react or react native library to call functions comparing the last time that it was called and running it when it's really needed. Avoiding unnecessary database calls or data loads that are updated at a certain time.
 
+Remembering that if you want to read the article on Medium, here is the link: https://medium.com/dev-genius/how-to-use-uselastcall-hook-in-your-react-project-af096e37871c
+
 ```sh
 $ yarn add react-lastcall-hook
 
