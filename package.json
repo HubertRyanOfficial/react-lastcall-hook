@@ -18,7 +18,7 @@
     "react": ">=16.8.0"
   },
   "keywords": [
-    "debounce",
+    "lastcall",
     "react-hook",
     "react"
   ],
